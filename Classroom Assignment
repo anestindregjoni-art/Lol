@@ -33,5 +33,64 @@ print("Number of layers:", layers)
 
 #Exercise 3
 
+names = []
+scores = []
+grades = []
+
+while True:
+    name = input("Enter the student's name (or type 'exit' to finish): ")
+
+    if name.lower() == "exit":
+        break
+
+    score = int(input("Enter the test score (0-100): "))
+
+    if score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    else:
+        grade = "F"
+
+    names.append(name)
+    scores.append(score)
+    grades.append(grade)
+
+print("\nStudent Names:")
+print(names)
+
+print("\nGrades:")
+print(grades)
+
+print("\nStudents and Their Grades:")
+for i in range(len(names)):
+    print(names[i], "-", grades[i])
+
+ascending_scores = sorted(scores)
+descending_scores = sorted(scores, reverse=True)
+
+print("\nScores in Ascending Order:")
+print(ascending_scores)
+
+print("\nScores in Descending Order:")
+print(descending_scores)
+
+
+#Exercise 4
+
+word = input("Enter a word: ")
+word_upper = word.upper()
+vowels = "AEIOU"
+consonants_only = ""
+
+for char in word_upper:
+    if char.isalpha() and char not in vowels:
+        consonants_only += char
+
+print(consonants_only)
 
 
