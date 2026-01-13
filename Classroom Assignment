@@ -1,0 +1,35 @@
+#Exercise 1
+
+odd_count = 0
+even_count = 0
+
+while True:
+    num = int(input("Enter a number (0 to stop): "))
+
+    if num == 0:
+        break
+    elif num % 2 == 0:
+        even_count += 1
+    else:
+        odd_count += 1
+
+print("Odd numbers entered:", odd_count)
+print("Even numbers entered:", even_count)
+
+
+#Exercise 2
+
+blocks = int(input("Enter number of blocks: "))
+
+layers = 0
+blocks_used = 0
+
+while blocks_used + (layers + 1) <= blocks:
+    layers += 1
+    blocks_used += layers
+
+print("Number of layers:", layers)
+
+
+#Exercise 3
+
