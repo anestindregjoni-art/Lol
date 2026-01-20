@@ -1,0 +1,126 @@
+#Exercise 1
+
+names = []
+scores = []
+
+while True:
+    name = input("Enter the student's name (or type 'exit' to finish): ")
+    if name.lower() == "exit":
+        break
+
+    score = int(input("Enter the test score (0-100): "))
+    names.append(name)
+    scores.append(score)
+
+for i in range(len(scores)):
+    max_index = i
+    for j in range(i + 1, len(scores)):
+        if scores[j] > scores[max_index]:
+            max_index = j
+
+    scores[i], scores[max_index] = scores[max_index], scores[i]
+    names[i], names[max_index] = names[max_index], names[i]
+
+for i in range(len(names)):
+    print(names[i], "-", scores[i])
+
+
+#Exercise 2
+
+names = []
+scores = []
+
+while True:
+    name = input("Enter the student's name (or type 'exit' to finish): ")
+    if name.lower() == "exit":
+        break
+
+    score = int(input("Enter the test score (0-100): "))
+    names.append(name)
+    scores.append(score)
+
+highest_score = scores[0]
+top_student = names[0]
+
+for i in range(1, len(scores)):
+    if scores[i] > highest_score:
+        highest_score = scores[i]
+        top_student = names[i]
+
+print("Congratulations!", top_student, "for having the highest score of", highest_score)
+
+
+#Exercise 3
+
+numbers = [5, 12, 7, 20, 9, 3]
+
+search_number = int(input("Enter a number to search for: "))
+found = False
+
+for i in range(len(numbers)):
+    if numbers[i] == search_number:
+        print("Number found at index:", i)
+        found = True
+        break
+
+if not found:
+    print("Number not in list")
+
+
+#Exercise 4
+
+numbers = [3, 5, 3, 7, 5, 9, 1, 9]
+
+unique_numbers = []
+
+for num in numbers:
+    if num not in unique_numbers:
+        unique_numbers.append(num)
+
+print("Original list:", numbers)
+print("List without duplicates:", unique_numbers)
+
+
+
+#Exercise 5
+
+import random
+
+lottery_numbers = []
+
+while len(lottery_numbers) < 6:
+    num = random.randint(1, 49)
+    if num not in lottery_numbers:
+        lottery_numbers.append(num)
+
+user_numbers = []
+
+print("Enter 6 numbers between 1 and 49:")
+while len(user_numbers) < 6:
+    num = int(input())
+    if 1 <= num <= 49 and num not in user_numbers:
+        user_numbers.append(num)
+
+matches = 0
+for num in user_numbers:
+    if num in lottery_numbers:
+        matches += 1
+
+points = 0
+if matches == 1:
+    points = 1
+elif matches == 2:
+    points = 2
+elif matches == 3:
+    points = 4
+elif matches == 4:
+    points = 8
+elif matches == 5:
+    points = 16
+elif matches == 6:
+    points = 32
+
+print("Lottery numbers:", lottery_numbers)
+print("Your numbers:", user_numbers)
+print("Correct numbers:", matches)
+print("Points earned:", points)
