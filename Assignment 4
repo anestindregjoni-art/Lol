@@ -1,0 +1,41 @@
+#Exercise 1
+
+def get_student_data():
+    names = []
+    scores = []
+
+    while True:
+        name = input("Enter the student's name (or type 'exit' to finish): ")
+        if name.lower() == "exit":
+            break
+
+        score = int(input("Enter the test score (0-100): "))
+        names.append(name)
+        scores.append(score)
+
+    return names, scores
+
+
+def sort_students(names, scores):
+    for i in range(len(scores)):
+        max_index = i
+        for j in range(i + 1, len(scores)):
+            if scores[j] > scores[max_index]:
+                max_index = j
+
+        scores[i], scores[max_index] = scores[max_index], scores[i]
+        names[i], names[max_index] = names[max_index], names[i]
+
+
+def display_students(names, scores):
+    for i in range(len(names)):
+        print(names[i], "-", scores[i])
+
+
+def main():
+    names, scores = get_student_data()
+    sort_students(names, scores)
+    display_students(names, scores)
+
+
+main()
